@@ -1,0 +1,170 @@
+$date
+	Mon Apr 01 18:38:15 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module test $end
+$scope module UUT $end
+$var wire 2 ! IN1 [1:0] $end
+$var wire 2 " IN2 [1:0] $end
+$var wire 1 # inEQ $end
+$var wire 1 $ inGT $end
+$var wire 1 % inLT $end
+$var wire 1 & outEQ $end
+$var wire 1 ' outGT $end
+$var wire 1 ( outLT $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0(
+0'
+1&
+0%
+0$
+1#
+b0 "
+b0 !
+$end
+#50
+0&
+1'
+b1 !
+#100
+b10 !
+#150
+b11 !
+#200
+1(
+0'
+b1 "
+b0 !
+#250
+1&
+0(
+b1 !
+#300
+0&
+1'
+b10 !
+#350
+b11 !
+#400
+0'
+1(
+b10 "
+b0 !
+#450
+b1 !
+#500
+1&
+0(
+b10 !
+#550
+0&
+1'
+b11 !
+#600
+0'
+1(
+b11 "
+b0 !
+#650
+b1 !
+#700
+b10 !
+#750
+1&
+0(
+b11 !
+#800
+0&
+1'
+1$
+0#
+b0 "
+b0 !
+#850
+b1 !
+#900
+b10 !
+#950
+b11 !
+#1000
+b1 "
+b0 !
+#1050
+b1 !
+#1100
+b10 !
+#1150
+b11 !
+#1200
+b10 "
+b0 !
+#1250
+b1 !
+#1300
+b10 !
+#1350
+b11 !
+#1400
+b11 "
+b0 !
+#1450
+b1 !
+#1500
+b10 !
+#1550
+b11 !
+#1600
+1(
+0'
+1%
+0$
+b0 "
+b0 !
+#1650
+b1 !
+#1700
+b10 !
+#1750
+b11 !
+#1800
+b1 "
+b0 !
+#1850
+b1 !
+#1900
+b10 !
+#1950
+b11 !
+#2000
+b10 "
+b0 !
+#2050
+b1 !
+#2100
+b10 !
+#2150
+b11 !
+#2200
+b11 "
+b0 !
+#2250
+b1 !
+#2300
+b10 !
+#2350
+b11 !
+#2400
+b0 "
+b0 !

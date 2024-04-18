@@ -1,0 +1,1 @@
+gtkwave komparator.vcd

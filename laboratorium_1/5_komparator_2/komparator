@@ -1,0 +1,79 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000026b928365a0 .scope module, "test" "test" 2 3;
+ .timescale -9 -10;
+v0000026b9295d570_0 .var "in1", 1 0;
+v0000026b9295d610_0 .net "in1_equal_in2", 0 0, L_0000026b9295bf40;  1 drivers
+v0000026b92836940_0 .net "in1_greater_in2", 0 0, L_0000026b92836b20;  1 drivers
+v0000026b928369e0_0 .net "in1_less_in2", 0 0, L_0000026b92836bc0;  1 drivers
+v0000026b92836a80_0 .var "in2", 1 0;
+S_0000026b9295d2a0 .scope module, "UUT" "komparator" 2 11, 3 27 0, S_0000026b928365a0;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 2 "IN1";
+    .port_info 1 /INPUT 2 "IN2";
+    .port_info 2 /OUTPUT 1 "IN1_EQUAL_IN2";
+    .port_info 3 /OUTPUT 1 "IN1_GREATER_IN2";
+    .port_info 4 /OUTPUT 1 "IN1_LESS_IN2";
+L_0000026b9295d6b0 .functor OR 1, L_0000026b92836b20, L_0000026b92836bc0, C4<0>, C4<0>;
+L_0000026b9295bf40 .functor NOT 1, L_0000026b9295d6b0, C4<0>, C4<0>, C4<0>;
+v0000026b9295a110_0 .net "IN1", 1 0, v0000026b9295d570_0;  1 drivers
+v0000026b92956f00_0 .net "IN1_EQUAL_IN2", 0 0, L_0000026b9295bf40;  alias, 1 drivers
+v0000026b92959640_0 .net "IN1_GREATER_IN2", 0 0, L_0000026b92836b20;  alias, 1 drivers
+v0000026b9295bea0_0 .net "IN1_LESS_IN2", 0 0, L_0000026b92836bc0;  alias, 1 drivers
+v0000026b9295d430_0 .net "IN2", 1 0, v0000026b92836a80_0;  1 drivers
+v0000026b9295d4d0_0 .net *"_ivl_4", 0 0, L_0000026b9295d6b0;  1 drivers
+L_0000026b92836b20 .cmp/gt 2, v0000026b9295d570_0, v0000026b92836a80_0;
+L_0000026b92836bc0 .cmp/gt 2, v0000026b92836a80_0, v0000026b9295d570_0;
+    .scope S_0000026b928365a0;
+T_0 ;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0000026b9295d570_0, 0, 2;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0000026b92836a80_0, 0, 2;
+    %pushi/vec4 20, 0, 32;
+T_0.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_0.1, 5;
+    %jmp/1 T_0.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %delay 50, 0;
+    %load/vec4 v0000026b92836a80_0;
+    %load/vec4 v0000026b9295d570_0;
+    %concat/vec4; draw_concat_vec4
+    %addi 1, 0, 4;
+    %split/vec4 2;
+    %store/vec4 v0000026b9295d570_0, 0, 2;
+    %store/vec4 v0000026b92836a80_0, 0, 2;
+    %jmp T_0.0;
+T_0.1 ;
+    %pop/vec4 1;
+    %vpi_call 2 21 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0000026b928365a0;
+T_1 ;
+    %vpi_call 2 26 "$timeformat", 32'sb11111111111111111111111111110111, 32'sb00000000000000000000000000000000, "ns", 32'sb00000000000000000000000000000110 {0 0 0};
+    %vpi_call 2 27 "$monitor", "Time: %t   IN1: %d  IN2: %d   IN1>IN2: %b  IN1=IN2: %b  IN1<IN2: %b", $time, v0000026b9295d570_0, v0000026b92836a80_0, v0000026b92836940_0, v0000026b9295d610_0, v0000026b928369e0_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0000026b928365a0;
+T_2 ;
+    %vpi_call 2 33 "$dumpfile", "komparator.vcd" {0 0 0};
+    %vpi_call 2 34 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000026b9295d2a0 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "5_komparator_tb.v";
+    "5_komparator.v";

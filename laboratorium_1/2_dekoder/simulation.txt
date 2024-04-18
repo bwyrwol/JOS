@@ -1,0 +1,12 @@
+Start simulation
+
+VCD info: dumpfile dekoder.vcd opened for output.
+Time=    0ns   Input= 0   Output= 00000001
+Time=   10ns   Input= 1   Output= 00000010
+Time=   15ns   Input= 2   Output= 00000100
+Time=   20ns   Input= 3   Output= 00001000
+Time=   25ns   Input= 4   Output= 00010000
+Time=   30ns   Input= 5   Output= 00100000
+Time=   35ns   Input= 6   Output= 01000000
+Time=   40ns   Input= 7   Output= 10000000
+2_dekoder_tb.v:22: $finish called at 450 (100ps)

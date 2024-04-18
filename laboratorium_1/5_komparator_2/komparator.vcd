@@ -1,0 +1,98 @@
+$date
+	Mon Apr 01 12:26:29 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module test $end
+$scope module UUT $end
+$var wire 2 ! IN1 [1:0] $end
+$var wire 1 " IN1_EQUAL_IN2 $end
+$var wire 2 # IN2 [1:0] $end
+$var wire 1 $ IN1_LESS_IN2 $end
+$var wire 1 % IN1_GREATER_IN2 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0%
+0$
+b0 #
+1"
+b0 !
+$end
+#50
+0"
+1%
+b1 !
+#100
+b10 !
+#150
+b11 !
+#200
+1$
+b1 #
+0%
+b0 !
+#250
+1"
+0$
+b1 !
+#300
+0"
+1%
+b10 !
+#350
+b11 !
+#400
+b10 #
+0%
+1$
+b0 !
+#450
+b1 !
+#500
+1"
+0$
+b10 !
+#550
+0"
+1%
+b11 !
+#600
+b11 #
+0%
+1$
+b0 !
+#650
+b1 !
+#700
+b10 !
+#750
+1"
+0$
+b11 !
+#800
+b0 #
+0$
+b0 !
+#850
+0"
+1%
+b1 !
+#900
+b10 !
+#950
+b11 !
+#1000
+1$
+b1 #
+0%
+b0 !
