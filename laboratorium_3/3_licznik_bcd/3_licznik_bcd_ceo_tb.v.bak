@@ -1,0 +1,31 @@
+`timescale 1ns / 1ps
+
+module test;
+
+reg        clk;
+reg        clr;
+reg        ce;
+wire [3:0] q;
+wire       ceo;
+
+CNT UUT(.CLK(clk), .CLR(clr), .CE(ce), .Q(q), .CEO(ceo));
+
+initial
+	begin
+		#0   clk = 0; clr = 1; ce = 0;
+		#100 $finish;
+	end
+
+initial
+	begin
+		forever clk = ~clk;
+	end
+
+initial
+	begin
+		$display("Time     clk clr ce  q3q2q1q0 ceo");
+		$monitor("%t       %b  %b  %b  %b       %b", $time, clk, clr, ce, q, ceo);
+	end
+
+endmodule
+

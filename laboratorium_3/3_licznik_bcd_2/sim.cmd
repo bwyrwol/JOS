@@ -1,0 +1,1 @@
+gtkwave cnt_bcd_ceo.vcd

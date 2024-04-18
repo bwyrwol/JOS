@@ -1,0 +1,157 @@
+$date
+	Wed Apr 10 18:38:32 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test_seq $end
+$scope module UUT $end
+$var wire 1 ! CE $end
+$var wire 1 " CLK $end
+$var wire 1 # CLR $end
+$var wire 1 $ IN $end
+$var wire 1 % OUT $end
+$var parameter 3 & st1 $end
+$var parameter 3 ' st2 $end
+$var parameter 3 ( st3 $end
+$var parameter 3 ) st4 $end
+$var parameter 3 * st5 $end
+$var reg 3 + state [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 *
+b11 )
+b10 (
+b1 '
+b0 &
+$end
+#0
+$dumpvars
+b0 +
+0%
+0$
+1#
+0"
+1!
+$end
+#1000
+1"
+#2000
+0"
+#3000
+1"
+#4000
+0"
+#5000
+1"
+#6000
+0"
+#7000
+1"
+#8000
+0"
+#9000
+1"
+#10000
+0"
+1$
+0#
+#11000
+b1 +
+1"
+#12000
+0"
+0$
+#13000
+b10 +
+1"
+#14000
+0"
+1$
+#15000
+b11 +
+1"
+#16000
+0"
+#17000
+1%
+b100 +
+1"
+#18000
+0"
+#19000
+0%
+b0 +
+1"
+#20000
+0"
+#21000
+b1 +
+1"
+#22000
+0"
+#23000
+1"
+#24000
+0"
+#25000
+1"
+#26000
+0"
+0$
+#27000
+b10 +
+1"
+#28000
+0"
+#29000
+b0 +
+1"
+#30000
+0"
+#31000
+1"
+#32000
+0"
+#33000
+1"
+#34000
+0"
+#35000
+1"
+#36000
+0"
+#37000
+1"
+#38000
+0"
+#39000
+1"
+#40000
+0"
+#41000
+1"
+#42000
+0"
+#43000
+1"
+#44000
+0"
+#45000
+1"
+#46000
+0"
+#47000
+1"
+#48000
+0"
+#49000
+1"
+#50000
+0"
