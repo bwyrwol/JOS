@@ -1,0 +1,99 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001f0e88f65a0 .scope module, "mux_test" "mux_test" 2 3;
+ .timescale -9 -10;
+v000001f0e894c5c0_0 .var "i", 3 0;
+v000001f0e894c160_0 .var "sel", 1 0;
+v000001f0e894c700_0 .net "y", 0 0, L_000001f0e894c0c0;  1 drivers
+S_000001f0e88f6730 .scope module, "UUT" "mux" 2 9, 3 1 0, S_000001f0e88f65a0;
+ .timescale -9 -10;
+    .port_info 0 /OUTPUT 1 "y";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /INPUT 4 "i";
+v000001f0e87176c0_0 .net *"_ivl_1", 0 0, L_000001f0e894c340;  1 drivers
+v000001f0e8716f40_0 .net *"_ivl_11", 0 0, L_000001f0e894c7a0;  1 drivers
+v000001f0e88f68c0_0 .net *"_ivl_13", 0 0, L_000001f0e894c480;  1 drivers
+v000001f0e871bb60_0 .net *"_ivl_15", 0 0, L_000001f0e894c520;  1 drivers
+v000001f0e8903e10_0 .net *"_ivl_16", 0 0, L_000001f0e894b9e0;  1 drivers
+v000001f0e8903eb0_0 .net *"_ivl_3", 0 0, L_000001f0e894c3e0;  1 drivers
+v000001f0e8903f50_0 .net *"_ivl_5", 0 0, L_000001f0e894be40;  1 drivers
+v000001f0e894c660_0 .net *"_ivl_7", 0 0, L_000001f0e894bee0;  1 drivers
+v000001f0e894b940_0 .net *"_ivl_8", 0 0, L_000001f0e894b8a0;  1 drivers
+v000001f0e894bb20_0 .net "i", 3 0, v000001f0e894c5c0_0;  1 drivers
+v000001f0e894c020_0 .net "sel", 1 0, v000001f0e894c160_0;  1 drivers
+v000001f0e894bf80_0 .net "y", 0 0, L_000001f0e894c0c0;  alias, 1 drivers
+L_000001f0e894c340 .part v000001f0e894c160_0, 1, 1;
+L_000001f0e894c3e0 .part v000001f0e894c160_0, 0, 1;
+L_000001f0e894be40 .part v000001f0e894c5c0_0, 3, 1;
+L_000001f0e894bee0 .part v000001f0e894c5c0_0, 2, 1;
+L_000001f0e894b8a0 .functor MUXZ 1, L_000001f0e894bee0, L_000001f0e894be40, L_000001f0e894c3e0, C4<>;
+L_000001f0e894c7a0 .part v000001f0e894c160_0, 0, 1;
+L_000001f0e894c480 .part v000001f0e894c5c0_0, 1, 1;
+L_000001f0e894c520 .part v000001f0e894c5c0_0, 0, 1;
+L_000001f0e894b9e0 .functor MUXZ 1, L_000001f0e894c520, L_000001f0e894c480, L_000001f0e894c7a0, C4<>;
+L_000001f0e894c0c0 .functor MUXZ 1, L_000001f0e894b9e0, L_000001f0e894b8a0, L_000001f0e894c340, C4<>;
+    .scope S_000001f0e88f65a0;
+T_0 ;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000001f0e894c160_0, 0, 2;
+    %pushi/vec4 4, 0, 32;
+T_0.0 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_0.1, 5;
+    %jmp/1 T_0.1, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v000001f0e894c5c0_0, 0, 4;
+    %pushi/vec4 4, 0, 32;
+T_0.2 %dup/vec4;
+    %pushi/vec4 0, 0, 32;
+    %cmp/s;
+    %jmp/1xz T_0.3, 5;
+    %jmp/1 T_0.3, 4;
+    %pushi/vec4 1, 0, 32;
+    %sub;
+    %delay 50, 0;
+    %load/vec4 v000001f0e894c5c0_0;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %shiftl 4;
+    %store/vec4 v000001f0e894c5c0_0, 0, 4;
+    %jmp T_0.2;
+T_0.3 ;
+    %pop/vec4 1;
+    %load/vec4 v000001f0e894c160_0;
+    %addi 1, 0, 2;
+    %store/vec4 v000001f0e894c160_0, 0, 2;
+    %jmp T_0.0;
+T_0.1 ;
+    %pop/vec4 1;
+    %vpi_call 2 20 "$display", "Koniec symulacji" {0 0 0};
+    %vpi_call 2 21 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000001f0e88f65a0;
+T_1 ;
+    %vpi_call 2 25 "$monitor", "Czas: %t   Sel: %b i: %b  y: %b", $time, v000001f0e894c160_0, v000001f0e894c5c0_0, v000001f0e894c700_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000001f0e88f65a0;
+T_2 ;
+    %vpi_call 2 29 "$dumpfile", "mux.vcd" {0 0 0};
+    %vpi_call 2 30 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001f0e88f6730 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "2_mux_tb.v";
+    "2_mux.v";

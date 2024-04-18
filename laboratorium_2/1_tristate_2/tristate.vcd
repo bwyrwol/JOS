@@ -1,0 +1,78 @@
+$date
+	Tue Apr 02 21:29:30 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module stimulus $end
+$scope module UUT $end
+$var wire 3 ! data [2:0] $end
+$var wire 1 " en $end
+$var parameter 32 # N $end
+$var reg 3 $ out [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 #
+$end
+#0
+$dumpvars
+bz $
+0"
+b0 !
+$end
+#50
+b0 $
+1"
+#100
+bz $
+0"
+#200
+b1 !
+#250
+b10 !
+#300
+b11 !
+#350
+b100 !
+#400
+b101 !
+#450
+b110 !
+#500
+b111 !
+#550
+b0 $
+1"
+b0 !
+#650
+b1 $
+b1 !
+#700
+b10 $
+b10 !
+#750
+b11 $
+b11 !
+#800
+b100 $
+b100 !
+#850
+b101 $
+b101 !
+#900
+b110 $
+b110 !
+#950
+b111 $
+b111 !
+#1000
+0"
+bz $
+b0 !
+#1050

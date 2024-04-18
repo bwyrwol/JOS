@@ -1,0 +1,112 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000022e8ce984a0 .scope module, "test" "test" 2 2;
+ .timescale -9 -10;
+P_0000022e8ce97c60 .param/l "W" 0 2 4, +C4<00000000000000000000000000000100>;
+v0000022e8cea2520_0 .var "A", 3 0;
+v0000022e8cea2200_0 .var "B", 3 0;
+v0000022e8cea1d00_0 .var "Ci", 0 0;
+v0000022e8cea2160_0 .net "Co", 0 0, L_0000022e8cea2840;  1 drivers
+v0000022e8cea2340_0 .net "S", 3 0, L_0000022e8cea1da0;  1 drivers
+S_0000022e8ce98930 .scope module, "UUT" "ADD" 2 12, 3 1 0, S_0000022e8ce984a0;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 1 "Ci";
+    .port_info 1 /INPUT 4 "A";
+    .port_info 2 /INPUT 4 "B";
+    .port_info 3 /OUTPUT 4 "S";
+    .port_info 4 /OUTPUT 1 "Co";
+P_0000022e8ce98420 .param/l "W" 0 3 2, +C4<00000000000000000000000000000100>;
+v0000022e8ce5ab40_0 .net "A", 3 0, v0000022e8cea2520_0;  1 drivers
+v0000022e8ce98ac0_0 .net "B", 3 0, v0000022e8cea2200_0;  1 drivers
+v0000022e8ce98b60_0 .net "Ci", 0 0, v0000022e8cea1d00_0;  1 drivers
+v0000022e8ce98c00_0 .net "Co", 0 0, L_0000022e8cea2840;  alias, 1 drivers
+v0000022e8ce98ca0_0 .net "S", 3 0, L_0000022e8cea1da0;  alias, 1 drivers
+L_0000022e8cef3070 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0000022e8ce56b70_0 .net *"_ivl_10", 0 0, L_0000022e8cef3070;  1 drivers
+v0000022e8ce56c10_0 .net *"_ivl_11", 4 0, L_0000022e8cea1ee0;  1 drivers
+v0000022e8ce56cb0_0 .net *"_ivl_13", 4 0, L_0000022e8cea20c0;  1 drivers
+L_0000022e8cef30b8 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0000022e8ce56d50_0 .net *"_ivl_16", 3 0, L_0000022e8cef30b8;  1 drivers
+v0000022e8ce56df0_0 .net *"_ivl_17", 4 0, L_0000022e8cea2660;  1 drivers
+v0000022e8ce56e90_0 .net *"_ivl_3", 4 0, L_0000022e8cea25c0;  1 drivers
+L_0000022e8cef3028 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0000022e8ce56f30_0 .net *"_ivl_6", 0 0, L_0000022e8cef3028;  1 drivers
+v0000022e8cea22a0_0 .net *"_ivl_7", 4 0, L_0000022e8cea1e40;  1 drivers
+L_0000022e8cea2840 .part L_0000022e8cea2660, 4, 1;
+L_0000022e8cea1da0 .part L_0000022e8cea2660, 0, 4;
+L_0000022e8cea25c0 .concat [ 4 1 0 0], v0000022e8cea2520_0, L_0000022e8cef3028;
+L_0000022e8cea1e40 .concat [ 4 1 0 0], v0000022e8cea2200_0, L_0000022e8cef3070;
+L_0000022e8cea1ee0 .arith/sum 5, L_0000022e8cea25c0, L_0000022e8cea1e40;
+L_0000022e8cea20c0 .concat [ 1 4 0 0], v0000022e8cea1d00_0, L_0000022e8cef30b8;
+L_0000022e8cea2660 .arith/sum 5, L_0000022e8cea1ee0, L_0000022e8cea20c0;
+S_0000022e8cea2b80 .scope begin, "ini_test" "ini_test" 2 15, 2 15 0, S_0000022e8ce984a0;
+ .timescale -9 -10;
+v0000022e8cea2480_0 .var/i "i", 31 0;
+    .scope S_0000022e8ce984a0;
+T_0 ;
+    %fork t_1, S_0000022e8cea2b80;
+    %jmp t_0;
+    .scope S_0000022e8cea2b80;
+t_1 ;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0000022e8cea2520_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0000022e8cea2200_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022e8cea1d00_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0000022e8cea2480_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v0000022e8cea2480_0;
+    %cvt/rv/s;
+    %pushi/real 1073741824, 4075; load=512.000
+    %cmp/wr;
+    %jmp/0xz T_0.1, 5;
+    %delay 50, 0;
+    %load/vec4 v0000022e8cea2520_0;
+    %load/vec4 v0000022e8cea2200_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0000022e8cea1d00_0;
+    %concat/vec4; draw_concat_vec4
+    %addi 1, 0, 9;
+    %split/vec4 1;
+    %store/vec4 v0000022e8cea1d00_0, 0, 1;
+    %split/vec4 4;
+    %store/vec4 v0000022e8cea2200_0, 0, 4;
+    %store/vec4 v0000022e8cea2520_0, 0, 4;
+    %load/vec4 v0000022e8cea2480_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0000022e8cea2480_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %vpi_call 2 22 "$display", "Koniec testu." {0 0 0};
+    %end;
+    .scope S_0000022e8ce984a0;
+t_0 %join;
+    %end;
+    .thread T_0;
+    .scope S_0000022e8ce984a0;
+T_1 ;
+    %vpi_call 2 27 "$timeformat", 32'sb11111111111111111111111111110111, 32'sb00000000000000000000000000000000, "ns", 32'sb00000000000000000000000000000110 {0 0 0};
+    %vpi_call 2 28 "$monitor", "Czas: %t   Ci: %b A: %d B: %d  S: %d Co: %b", $time, v0000022e8cea1d00_0, v0000022e8cea2520_0, v0000022e8cea2200_0, v0000022e8cea2340_0, v0000022e8cea2160_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0000022e8ce984a0;
+T_2 ;
+    %vpi_call 2 33 "$dumpfile", "adder.vcd" {0 0 0};
+    %vpi_call 2 34 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000022e8ce98930 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "3_adder_tb.v";
+    "3_adder.v";

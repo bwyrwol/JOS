@@ -1,0 +1,97 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002b0ec3a61a0 .scope module, "test" "test" 2 2;
+ .timescale -9 -10;
+P_000002b0ec3b79c0 .param/l "W" 0 2 4, +C4<00000000000000000000000000000100>;
+v000002b0ec3b44f0_0 .var "A", 3 0;
+v000002b0ec3fd850_0 .var "B", 3 0;
+v000002b0ec3fe100_0 .net "Co", 0 0, L_000002b0ec3fe470;  1 drivers
+v000002b0ec3fefb0_0 .net "S", 3 0, L_000002b0ec3fe650;  1 drivers
+S_000002b0ec3a6630 .scope module, "UUT" "ADD" 2 11, 3 1 0, S_000002b0ec3a61a0;
+ .timescale -9 -10;
+    .port_info 0 /INPUT 4 "A";
+    .port_info 1 /INPUT 4 "B";
+    .port_info 2 /OUTPUT 4 "S";
+    .port_info 3 /OUTPUT 1 "Co";
+P_000002b0ec3b7a00 .param/l "W" 0 3 2, +C4<00000000000000000000000000000100>;
+v000002b0ec3a67c0_0 .net "A", 3 0, v000002b0ec3b44f0_0;  1 drivers
+v000002b0ec3a6860_0 .net "B", 3 0, v000002b0ec3fd850_0;  1 drivers
+v000002b0ec2f6b30_0 .net "Co", 0 0, L_000002b0ec3fe470;  alias, 1 drivers
+v000002b0ec2f6bd0_0 .net "S", 3 0, L_000002b0ec3fe650;  alias, 1 drivers
+L_000002b0ec3ff200 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000002b0ec2f6c70_0 .net *"_ivl_10", 0 0, L_000002b0ec3ff200;  1 drivers
+v000002b0ec2f6d10_0 .net *"_ivl_11", 4 0, L_000002b0ec3fe970;  1 drivers
+v000002b0ec2f6db0_0 .net *"_ivl_3", 4 0, L_000002b0ec3fea10;  1 drivers
+L_000002b0ec3ff1b8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000002b0ec2f6e50_0 .net *"_ivl_6", 0 0, L_000002b0ec3ff1b8;  1 drivers
+v000002b0ec2f6ef0_0 .net *"_ivl_7", 4 0, L_000002b0ec3fe790;  1 drivers
+L_000002b0ec3fe470 .part L_000002b0ec3fe970, 4, 1;
+L_000002b0ec3fe650 .part L_000002b0ec3fe970, 0, 4;
+L_000002b0ec3fea10 .concat [ 4 1 0 0], v000002b0ec3b44f0_0, L_000002b0ec3ff1b8;
+L_000002b0ec3fe790 .concat [ 4 1 0 0], v000002b0ec3fd850_0, L_000002b0ec3ff200;
+L_000002b0ec3fe970 .arith/sum 5, L_000002b0ec3fea10, L_000002b0ec3fe790;
+S_000002b0ec3b42c0 .scope begin, "ini_test" "ini_test" 2 14, 2 14 0, S_000002b0ec3a61a0;
+ .timescale -9 -10;
+v000002b0ec3b4450_0 .var/i "i", 31 0;
+    .scope S_000002b0ec3a61a0;
+T_0 ;
+    %fork t_1, S_000002b0ec3b42c0;
+    %jmp t_0;
+    .scope S_000002b0ec3b42c0;
+t_1 ;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000002b0ec3b44f0_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000002b0ec3fd850_0, 0, 4;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002b0ec3b4450_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000002b0ec3b4450_0;
+    %cvt/rv/s;
+    %pushi/real 1073741824, 4074; load=256.000
+    %cmp/wr;
+    %jmp/0xz T_0.1, 5;
+    %delay 50, 0;
+    %load/vec4 v000002b0ec3b44f0_0;
+    %load/vec4 v000002b0ec3fd850_0;
+    %concat/vec4; draw_concat_vec4
+    %addi 1, 0, 8;
+    %split/vec4 4;
+    %store/vec4 v000002b0ec3fd850_0, 0, 4;
+    %store/vec4 v000002b0ec3b44f0_0, 0, 4;
+    %load/vec4 v000002b0ec3b4450_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002b0ec3b4450_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %vpi_call 2 21 "$display", "Koniec testu." {0 0 0};
+    %end;
+    .scope S_000002b0ec3a61a0;
+t_0 %join;
+    %end;
+    .thread T_0;
+    .scope S_000002b0ec3a61a0;
+T_1 ;
+    %vpi_call 2 26 "$timeformat", 32'sb11111111111111111111111111110111, 32'sb00000000000000000000000000000000, "ns", 32'sb00000000000000000000000000000110 {0 0 0};
+    %vpi_call 2 27 "$monitor", "Czas: %t   A: %d B: %d  S: %d Co: %b", $time, v000002b0ec3b44f0_0, v000002b0ec3fd850_0, v000002b0ec3fefb0_0, v000002b0ec3fe100_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000002b0ec3a61a0;
+T_2 ;
+    %vpi_call 2 32 "$dumpfile", "adder.vcd" {0 0 0};
+    %vpi_call 2 33 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002b0ec3a6630 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "3_adder_tb.v";
+    "3_adder.v";
